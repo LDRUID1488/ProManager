@@ -1,0 +1,41 @@
+{% extends "ProManager/layout.html" %}
+{% block title %}
+    Exercise
+{% endblock %}
+{% block content %}
+{% load static %}
+<div class= "container">
+<div class="row row-cols-1 row-cols-md-3 g-4 px-4 mt-4">
+  {% for el in exercises%}
+   <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+       <a> <h5 class="card-title">{{el.topic}}</h5></a>
+        <p class="card-text"> {{ el.description }}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Start date : {{el.start_date|date:'d-m-Y'}}</small>
+        <div class="position-absolute bottom-0 end-0 mb-1"><a href="{% url 'exercise-new' el.id %}" <button type="button" class="btn btn-secondary">Detail</button></a></div>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+    <div class="col">
+      <div class="card h-100 ">
+        <div class="card-body">
+          <a href="{% url 'create_exercise' %}"<button type="button"
+         <a> <h6 class="card-title text-muted">If you want create exercise click on me</h6></a>
+          <p class="card-text"> <img src="{% static '/img/plus-circle.svg' %}"></p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted"> Create new project</small> 
+        </div>
+      </div>
+    </button></a>
+    </div>
+    </div>
+
+
+
+
+{% endblock %}

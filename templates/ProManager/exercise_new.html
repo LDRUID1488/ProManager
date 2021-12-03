@@ -1,0 +1,46 @@
+{% extends "ProManager/layout.html" %}
+{% block title %}
+    Exerc
+{% endblock %}
+{% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+<div class= "container">
+<h1 class="display-1 position-absolute top-0 start-50 translate-middle-x pt-5">{{exercises.topic}}</h1></br>
+<div class= "pt-5">
+
+
+</br>
+{{exercises.description}}</br>
+
+
+
+<h2> Start date: {{exercises.start_date|date:'d-m-Y'}}</br></h2>
+
+<h2> End date: {{exercises.end_date|date:'d-m-Y'}}</br></h2>
+
+{{exercises.type_of_exercise}}</br>
+{{exercises.task_of_priority}}</br>
+<div>
+
+<hr>
+{% for comment in comments %}
+   Пользователь - {{ comment.user }}<br>
+   {{ comment.text }} <br>
+   Добавлен - {{ comment.created }}<br><br>
+{% endfor %}
+
+{% if user.is_active %}
+   <form action="" method="post">
+       {% csrf_token %}
+       {{ form.as_p }}
+       <button type="submit">Отправить</button>
+   </form>
+{% else %}
+   <h4>Что бы оставить комментарий авторизуйтесь</h4>
+{% endif %}
+
+
+
+
+{% endblock %}

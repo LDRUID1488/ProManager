@@ -1,0 +1,19 @@
+{% extends "ProManager/layout.html" %}
+{% block title %} 
+Delete Exercise
+ {% endblock %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class = "container text-center">
+    <h1>Delete Exercise</h1>
+	<form method="POST">
+        {% csrf_token %}
+        
+        <p>Are you sure you want to delete "{{ object }}"?</p>
+
+        <span>{{ error }}</span>
+
+		<button class="btn btn-primary" type="submit">Create</button>
+	</form>
+</div>
+{% endblock %}

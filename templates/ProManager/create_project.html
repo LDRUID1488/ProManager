@@ -1,0 +1,21 @@
+{% extends "ProManager/layout.html" %}
+{% block title %} 
+Create new Project
+ {% endblock %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class = "container text-center">
+    <h1>Create Project</h1>
+	<form method="POST">
+        {% csrf_token %}
+        
+        {{ form.name }}<br>
+        {{ form.description }}<br>
+        {{ form.full_descrip }}<br>
+
+        <span>{{ error }}</span>
+
+		<button class="btn btn-primary" type="submit">Create</button>
+	</form>
+</div>
+{% endblock %}

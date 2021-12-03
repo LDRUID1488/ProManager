@@ -1,0 +1,49 @@
+{% extends "ProManager/layout.html" %}
+{% block title %}
+Create new Exercise
+{% endblock %}
+{% block content %}
+
+
+<div class = "container text-center">
+    <h1>Create Exercise</h1>
+	<form method="POST">
+        {% csrf_token %}
+        
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Name project</span>
+            {{ form.topic }}
+        </div>
+        <div class="input-group">
+            <span class="input-group-text">Description</span>
+            {{ form.description }}
+        </div>
+        <div class="input-group mb-3 mt-3 px-2">
+            <label class="input-group-text" for="inputGroupSelect01">Type of exercise</label>
+            {{ form.type_of_exercise }}
+            <label class="input-group-text" for="inputGroupSelect01">Task of priority</label>
+            {{ form.task_of_priority }}
+          </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="date">End date</span>
+            {{ form.end_date }}
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Start time</span>
+            <label for="time"></label>
+            {{ form.time}}<br>
+        </div>
+
+        <div class="input-group mb-3 mt-3 px-2">
+            <label class="input-group-text" for="inputGroupSelect01">Author</label>
+            {{ form.author }}
+            <label class="input-group-text" for="inputGroupSelect01">Project</label>
+            {{ form.post}}
+          </div>
+        <span>{{ error }}</span>
+<br>
+		<button class="btn btn-primary" type="submit">Create</button>
+	</form>
+</div>
+
+{% endblock %}
